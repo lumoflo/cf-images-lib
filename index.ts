@@ -1,7 +1,7 @@
 import FormData from "form-data";
 import { v4 as uuidv4 } from "uuid";
 import { z } from "zod";
-const axios = require("axios").default;
+import axios from "axios";
 
 const ResultSchema = z.object({
   id: z.string(),
@@ -20,18 +20,29 @@ const ResponseSchema = z.object({
 
 type ParsedResponse = z.infer<typeof ResponseSchema>;
 
-export default class Uploader {
-  private CF_ACCOUNT_ID: string;
-  private CF_API_TOKEN: string;
+interface UploaderInterface {
+  fromBase64: (base64Text: string, filename?: string, fileExtension?: string) => Promise<ParsedResponse>;
+  fromURL: (url: string) => Promise<ParsedResponse>;
+}
 
-  constructor(CF_ACCOUNT_ID: string, CF_API_TOKEN: string) {
-    if (!(CF_ACCOUNT_ID && CF_API_TOKEN))
-      throw new Error("CF_ACCOUNT_ID or CF_API_TOKEN cannot be empty");
-    this.CF_ACCOUNT_ID = CF_ACCOUNT_ID;
-    this.CF_API_TOKEN = CF_API_TOKEN;
-  }
+const createUploader = (CF_ACCOUNT_ID: string, CF_API_TOKEN: string): UploaderInterface => {
+  if (!(CF_ACCOUNT_ID && CF_API_TOKEN))
+    throw new Error("CF_ACCOUNT_ID or CF_API_TOKEN cannot be empty");
 
-  public fromBase64 = async (
+  const sendRequest = async (formData: FormData): Promise<unknown> => {
+    const options = {
+      method: "POST",
+      url: `https://api.cloudflare.com/client/v4/accounts/${CF_ACCOUNT_ID}/images/v1`,
+      headers: {
+        "Content-Type": "multipart/form-data",
+        Authorization: `Bearer ${CF_API_TOKEN}`,
+      },
+      data: formData,
+    };
+    return (await axios.request(options))?.data;
+  };
+
+  const fromBase64 = async (
     base64Text: string,
     filename: string = uuidv4(),
     fileExtension = "png",
@@ -53,7 +64,7 @@ export default class Uploader {
         `${filename}.${fileExtension}`,
       );
 
-      this.sendRequest(formData)
+      sendRequest(formData)
         .then((data) => {
           const parsedData = ResponseSchema.parse(data);
           resolve(parsedData);
@@ -64,20 +75,7 @@ export default class Uploader {
     });
   };
 
-  private sendRequest = async (formData: FormData): Promise<unknown> => {
-    const options = {
-      method: "POST",
-      url: `https://api.cloudflare.com/client/v4/accounts/${this.CF_ACCOUNT_ID}/images/v1`,
-      headers: {
-        "Content-Type": "multipart/form-data",
-        Authorization: `Bearer ${this.CF_API_TOKEN}`,
-      },
-      data: formData,
-    };
-    return (await axios.request(options))?.data;
-  };
-
-  public fromURL = async (url: string): Promise<ParsedResponse> => {
+  const fromURL = async (url: string): Promise<ParsedResponse> => {
     return new Promise((resolve, reject) => {
       if (!url) {
         reject(new Error("url cannot be empty"));
@@ -85,7 +83,7 @@ export default class Uploader {
       }
       const formData = new FormData();
       formData.append("url", url);
-      this.sendRequest(formData)
+      sendRequest(formData)
         .then((data) => {
           const parsedData = ResponseSchema.parse(data);
           resolve(parsedData);
@@ -95,4 +93,8 @@ export default class Uploader {
         });
     });
   };
-}
+
+  return { fromBase64, fromURL };
+};
+
+export default createUploader;
