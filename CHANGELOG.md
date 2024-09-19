@@ -1,3 +1,10 @@
+## [1.7.0](https://github.com/lumoflo/cf-images-lib/compare/v1.6.0...v1.7.0) (2024-09-19)
+
+
+### Features
+
+* **core:** named exports and export typings ([267aaa7](https://github.com/lumoflo/cf-images-lib/commit/267aaa728812f638cc4df567c8352794a7012d58))
+
 ## [1.6.0](https://github.com/lumoflo/cf-images-lib/compare/v1.5.0...v1.6.0) (2024-09-19)
 
 
@@ -25,11 +32,4 @@
 ### Features
 
 * **workflow:** update remove pnpm cache from setup node ([b68c0dc](https://github.com/lumoflo/cf-images-lib/commit/b68c0dc4b9ed9855711eb8636ff5a9690a857167))
-
-## [1.2.0](https://github.com/lumoflo/cf-images-lib/compare/v1.1.0...v1.2.0) (2024-09-19)
-
-
-### Features
-
-* **workflow:** update node version in release action ([4e19477](https://github.com/lumoflo/cf-images-lib/commit/4e19477107339f7d700ffd7e795ae2dd883e1c50))
 
