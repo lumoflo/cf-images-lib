@@ -1,7 +1,7 @@
+import axios from "axios";
 import FormData from "form-data";
 import { v4 as uuidv4 } from "uuid";
 import { z } from "zod";
-import axios from "axios";
 
 const ResultSchema = z.object({
   id: z.string(),
@@ -21,11 +21,18 @@ const ResponseSchema = z.object({
 type ParsedResponse = z.infer<typeof ResponseSchema>;
 
 interface UploaderInterface {
-  fromBase64: (base64Text: string, filename?: string, fileExtension?: string) => Promise<ParsedResponse>;
+  fromBase64: (
+    base64Text: string,
+    filename?: string,
+    fileExtension?: string,
+  ) => Promise<ParsedResponse>;
   fromURL: (url: string) => Promise<ParsedResponse>;
 }
 
-const createUploader = (CF_ACCOUNT_ID: string, CF_API_TOKEN: string): UploaderInterface => {
+const createUploader = (
+  CF_ACCOUNT_ID: string,
+  CF_API_TOKEN: string,
+): UploaderInterface => {
   if (!(CF_ACCOUNT_ID && CF_API_TOKEN))
     throw new Error("CF_ACCOUNT_ID or CF_API_TOKEN cannot be empty");
 
