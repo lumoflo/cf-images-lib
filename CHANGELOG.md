@@ -1,3 +1,10 @@
+## [1.5.0](https://github.com/lumoflo/cf-images-lib/compare/v1.4.0...v1.5.0) (2024-09-19)
+
+
+### Features
+
+* **package:** rename, now a scoped package ([e1f2b1c](https://github.com/lumoflo/cf-images-lib/commit/e1f2b1cc42d2c1b7be1e4b36eddc7a953b60eb2a))
+
 ## [1.4.0](https://github.com/lumoflo/cf-images-lib/compare/v1.3.0...v1.4.0) (2024-09-19)
 
 
