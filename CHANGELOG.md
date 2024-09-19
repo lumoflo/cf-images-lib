@@ -1,3 +1,10 @@
+## [1.8.0](https://github.com/lumoflo/cf-images-lib/compare/v1.7.0...v1.8.0) (2024-09-19)
+
+
+### Features
+
+* **package:** new package name to avoid clash with internal packages ([1cefc1b](https://github.com/lumoflo/cf-images-lib/commit/1cefc1b8c07fdb6016d1b306a39424dd0d0e7238))
+
 ## [1.7.0](https://github.com/lumoflo/cf-images-lib/compare/v1.6.0...v1.7.0) (2024-09-19)
 
 
@@ -25,11 +32,4 @@
 ### Features
 
 * **workspace:** update workflow ([6a0f1ed](https://github.com/lumoflo/cf-images-lib/commit/6a0f1ed38c02f1d9aa5e7917c285eb52deb043b1))
-
-## [1.3.0](https://github.com/lumoflo/cf-images-lib/compare/v1.2.0...v1.3.0) (2024-09-19)
-
-
-### Features
-
-* **workflow:** update remove pnpm cache from setup node ([b68c0dc](https://github.com/lumoflo/cf-images-lib/commit/b68c0dc4b9ed9855711eb8636ff5a9690a857167))
 
