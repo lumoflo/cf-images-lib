@@ -97,4 +97,5 @@ const createUploader = (CF_ACCOUNT_ID: string, CF_API_TOKEN: string): UploaderIn
   return { fromBase64, fromURL };
 };
 
-export default createUploader;
+export type { UploaderInterface, ParsedResponse };
+export { ResponseSchema, ResultSchema, createUploader };
