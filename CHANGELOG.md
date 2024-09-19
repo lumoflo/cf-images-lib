@@ -1,3 +1,10 @@
+## [1.3.0](https://github.com/lumoflo/cf-images-lib/compare/v1.2.0...v1.3.0) (2024-09-19)
+
+
+### Features
+
+* **workflow:** update remove pnpm cache from setup node ([b68c0dc](https://github.com/lumoflo/cf-images-lib/commit/b68c0dc4b9ed9855711eb8636ff5a9690a857167))
+
 ## [1.2.0](https://github.com/lumoflo/cf-images-lib/compare/v1.1.0...v1.2.0) (2024-09-19)
 
 
