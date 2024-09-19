@@ -11,8 +11,8 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: '16'
-          registry-url: 'https://registry.npmjs.org'
+          node-version: '20'
+          cache: 'pnpm'
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
         with:
