@@ -1,5 +1,5 @@
 {
-  "name": "cf-images-lib",
+  "name": "@lumoflo/cf-images-lib",
   "version": "1.2.0",
   "description": "Unoffical Cloudflare Images Upload Library",
   "main": "dist/index.js",
