@@ -1,3 +1,10 @@
+## [1.9.0](https://github.com/lumoflo/cf-images-lib/compare/v1.8.0...v1.9.0) (2024-09-19)
+
+
+### Features
+
+* **core:** format and lint ([74ec39e](https://github.com/lumoflo/cf-images-lib/commit/74ec39e072e15fa8f137151ed33d95e25ef01c51))
+
 ## [1.8.0](https://github.com/lumoflo/cf-images-lib/compare/v1.7.0...v1.8.0) (2024-09-19)
 
 
@@ -25,11 +32,4 @@
 ### Features
 
 * **package:** rename, now a scoped package ([e1f2b1c](https://github.com/lumoflo/cf-images-lib/commit/e1f2b1cc42d2c1b7be1e4b36eddc7a953b60eb2a))
-
-## [1.4.0](https://github.com/lumoflo/cf-images-lib/compare/v1.3.0...v1.4.0) (2024-09-19)
-
-
-### Features
-
-* **workspace:** update workflow ([6a0f1ed](https://github.com/lumoflo/cf-images-lib/commit/6a0f1ed38c02f1d9aa5e7917c285eb52deb043b1))
 
