@@ -1,3 +1,10 @@
+## [1.4.0](https://github.com/lumoflo/cf-images-lib/compare/v1.3.0...v1.4.0) (2024-09-19)
+
+
+### Features
+
+* **workspace:** update workflow ([6a0f1ed](https://github.com/lumoflo/cf-images-lib/commit/6a0f1ed38c02f1d9aa5e7917c285eb52deb043b1))
+
 ## [1.3.0](https://github.com/lumoflo/cf-images-lib/compare/v1.2.0...v1.3.0) (2024-09-19)
 
 
